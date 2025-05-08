@@ -1,0 +1,21 @@
+{
+  "name": "Pokédex - Explore Pokémon",
+  "short_name": "Pokédex",
+  "description": "A cool Pokédex app built with Next.js and PokeAPI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf2f8",
+  "theme_color": "#ec4899",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
