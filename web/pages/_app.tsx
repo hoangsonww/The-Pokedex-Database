@@ -1,5 +1,4 @@
 // Wrapping the app with the QueryClientProvider to provide the query client to all pages
-// (As described in the assignment reading)
 import type { AppProps } from 'next/app';
 import '@/styles/globals.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -8,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 const queryClient = new QueryClient();
 
@@ -52,6 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </Layout>
         </motion.div>
       </AnimatePresence>
+      <Analytics />
     </QueryClientProvider>
   );
 }
