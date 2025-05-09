@@ -24,6 +24,10 @@ _A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailw
   <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
 </p>
 
+**Live Web App: [https://pokedex-db.vercel.app/](https://pokedex-db.vercel.app/).** 
+
+Feel free to explore the app and its features! 
+
 ---
 
 ## 🚀 Features
@@ -120,6 +124,7 @@ This app consumes the following PokeAPI endpoints:
 ## 📂 Folder Structure
 
 ```
+/
 ├── components/
 │   ├── PokemonCard.tsx
 │   ├── ItemCard.tsx
@@ -154,4 +159,3 @@ Contributions welcome! Feel free to open issues or submit pull requests.
 ## 📜 License
 
 This project is licensed under the MIT License.
-
