@@ -70,7 +70,10 @@ Feel free to explore the app and its features!
 1. **Clone the repo**  
   ```bash
   git clone git@github.com:hoangsonww/The-Pokedex-Database.git
-  cd The-Pokedex-Database
+  # or use https
+  git clone https://github.com/hoangsonww/The-Pokedex-Database.git
+  # then navigate to the web directory
+  cd The-Pokedex-Database/web
   ```
 
 2. **Install dependencies**
