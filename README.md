@@ -6,6 +6,24 @@ _A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailw
   <img src="images/pokedex-app.png" alt="Pokédex App" width="100%">
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query" />
+  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/Heroicons-0EA5E9?style=for-the-badge&logo=heroicons&logoColor=white" alt="Heroicons" />
+  <img src="https://img.shields.io/badge/PokeAPI-FFCB05?style=for-the-badge&logo=pokeapi&logoColor=white" alt="PokeAPI" />
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="React Router" />
+  <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux" />
+</p>
+
 ---
 
 ## 🚀 Features
@@ -28,6 +46,7 @@ _A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailw
   - Heroicons search icon, focus rings, and high-contrast text.  
 - **Offline-Friendly**  
   - Core data (all 100 000+ Pokémon & items) is fetched once and cached via React Query.
+- **and more!**
 
 ---
 
@@ -45,27 +64,27 @@ _A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailw
 ## 📦 Installation & Local Development
 
 1. **Clone the repo**  
-   ```bash
-   git clone git@github.com:hoangsonww/The-Pokedex-Database.git
-   cd The-Pokedex-Database
+  ```bash
+  git clone git@github.com:hoangsonww/The-Pokedex-Database.git
+  cd The-Pokedex-Database
   ```
 
 2. **Install dependencies**
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+  ```bash
+  npm install
+  # or
+  yarn install
+  ```
 3. **Run the development server**
 
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  ```
 
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
 ---
 
