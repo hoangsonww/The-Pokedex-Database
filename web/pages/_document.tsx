@@ -44,7 +44,7 @@ class MyDocument extends Document {
           />
           <meta
             name="twitter:image"
-            content="https://pokedex-db.vercel.app/images/pokedex-app.png"
+            content="https://pokedex-db.vercel.app/android-chrome-512x512.png"
           />
 
           {/* PWA manifest */}
