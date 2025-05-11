@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { Analytics } from '@vercel/analytics/react';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
@@ -15,14 +16,22 @@ class MyDocument extends Document {
           {/* Primary metadata */}
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="author" content="Son Nguyen" />
           <meta
             name="description"
             content="Explore Pokémon & items with search, pagination, and favorites. Pokédex Database built with Next.js, React Query & Tailwind CSS."
           />
+          <meta
+            name="keywords"
+            content="Pokédex, Pokémon, Next.js, React Query, Tailwind CSS, Pokedex Database"
+          />
           <meta name="theme-color" content="#ec4899" />
+          <meta name="robots" content="index, follow" />
+          <link rel="canonical" href="https://pokedex-db.vercel.app/" />
 
           {/* Open Graph */}
           <meta property="og:type" content="website" />
+          <meta property="og:locale" content="en_US" />
           <meta property="og:url" content="https://pokedex-db.vercel.app/" />
           <meta property="og:title" content="Pokédex Database" />
           <meta
@@ -31,12 +40,13 @@ class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://pokedex-db.vercel.app/images/pokedex-app.png"
+            content="https://pokedex-db.vercel.app/android-chrome-512x512.png"
           />
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content="https://pokedex-db.vercel.app/" />
+          <meta name="twitter:site" content="@hoangsonww" />
+          <meta name="twitter:creator" content="@hoangsonww" />
           <meta name="twitter:title" content="Pokédex Database" />
           <meta
             name="twitter:description"
@@ -46,6 +56,40 @@ class MyDocument extends Document {
             name="twitter:image"
             content="https://pokedex-db.vercel.app/android-chrome-512x512.png"
           />
+
+          {/* JSON-LD Structured Data */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                url: 'https://pokedex-db.vercel.app/',
+                name: 'Pokédex Database',
+                author: {
+                  '@type': 'Person',
+                  name: 'Son Nguyen',
+                  url: 'https://github.com/hoangsonww'
+                }
+              })
+            }}
+          />
+
+          {/* Google Analytics via next/script */}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-3HYFFXTYEK"
+            strategy="afterInteractive"
+          />
+          <Script id="gtag-init" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3HYFFXTYEK', {
+                page_path: window.location.pathname,
+              });
+            `}
+          </Script>
 
           {/* PWA manifest */}
           <link rel="manifest" href="/manifest.json" />
