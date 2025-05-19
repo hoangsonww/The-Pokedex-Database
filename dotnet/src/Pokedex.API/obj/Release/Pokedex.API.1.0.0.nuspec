@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Pokedex.API</id>
+    <version>1.0.0</version>
+    <authors>Son Nguyen</authors>
+    <description>Pokédex backend with MongoDB and PokeAPI integration</description>
+    <tags>pokedex pokeapi dotnet api mongodb jwt</tags>
+    <repository url="https://github.com/hoangsonww/The-Pokedex-Database" />
+    <dependencies>
+      <group targetFramework="net7.0">
+        <dependency id="Microsoft.AspNetCore.Authentication.JwtBearer" version="7.0.0" exclude="Build,Analyzers" />
+        <dependency id="MongoDB.Driver" version="2.22.0" exclude="Build,Analyzers" />
+        <dependency id="Swashbuckle.AspNetCore" version="6.4.0" exclude="Build,Analyzers" />
+        <dependency id="System.IdentityModel.Tokens.Jwt" version="6.15.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net7.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net7.0/appsettings.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="/ws/src/Pokedex.API/bin/Release/net7.0/Pokedex.API.runtimeconfig.json" target="lib/net7.0/Pokedex.API.runtimeconfig.json" />
+    <file src="/ws/src/Pokedex.API/bin/Release/net7.0/Pokedex.API.dll" target="lib/net7.0/Pokedex.API.dll" />
+    <file src="/ws/src/Pokedex.API/appsettings.json" target="content/appsettings.json" />
+    <file src="/ws/src/Pokedex.API/appsettings.json" target="contentFiles/any/net7.0/appsettings.json" />
+  </files>
+</package>
