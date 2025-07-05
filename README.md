@@ -1,6 +1,6 @@
 # Pokédex App 🏆✨
 
-_A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailwind CSS, React Query, and PokeAPI._
+_A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailwind CSS, React Query, and PokeAPI 🐱._
 
 <p align="center">
   <img src="images/pokedex-app.png" alt="Pokédex App" width="100%">
@@ -28,7 +28,7 @@ _A beautifully designed, feature-rich Pokédex built with Next.js (React), Tailw
   <img src="https://img.shields.io/badge/Shell-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Shell" />
 </p>
 
-**Live Web App: [https://pokedex-db.vercel.app/](https://pokedex-db.vercel.app/).** 
+**Live Web App: [https://pokedex-db.vercel.app/](https://pokedex-db.vercel.app/). 🚀** 
 
 Feel free to explore the app and its features! 
 
@@ -53,8 +53,10 @@ Feel free to explore the app and its features!
   - Keyboard event handlers: Enter to submit, Backspace to delete, letter keys to type.  
   - Heroicons search icon, focus rings, and high-contrast text.  
 - **Offline-Friendly**  
-  - Core data (all 100 000+ Pokémon & items) is fetched once and cached via React Query.
-- **and more!**
+  - Core data (all 100 000+ Pokémon & items) is fetched once and cached via React Query.  
+- **Optional Self-Hosted API**  
+  - Supports running a custom .NET (C#) backend replicating the PokeAPI schema  
+  - Completely optional — you can still use the public PokeAPI without any backend setup.
 
 ---
 
@@ -65,7 +67,8 @@ Feel free to explore the app and its features!
 - **Tailwind CSS** for utility-first styling  
 - **Framer Motion** for animations  
 - **Heroicons** for SVG icons  
-- **PokeAPI** (public REST API for Pokémon data)
+- **PokeAPI** (public REST API for Pokémon data)  
+- **.NET with C#** (optional backend replication of PokeAPI)
 
 ---
 
@@ -148,6 +151,52 @@ This app consumes the following PokeAPI endpoints:
 ├── tsconfig.json
 └── tailwind.config.js
 ```
+
+---
+
+## 🖥️ Optional .NET Backend
+
+In addition to using the public [PokeAPI](https://pokeapi.co/), this project also includes an **optional** backend built with **C#** and **.NET**. This backend replicates the functionality of PokeAPI, allowing you to self-host the Pokémon data if you prefer full control over the API.
+
+**Key Details:**
+
+- Implements a local Pokémon API with a schema similar to PokeAPI
+- Written in **C#** using **ASP.NET Core**
+- Docker support for easy containerized deployment
+- Optional: you can skip setting up this backend and continue using the public PokeAPI without any issues
+
+**When to use it?**  
+✅ If you want to host your own Pokémon API (e.g., for offline use or custom modifications)  
+✅ If you need full control over the data  
+✅ Otherwise, you can keep using the public PokeAPI — no extra setup required.
+
+**Getting Started**
+
+If you wish to run the .NET backend:
+
+1. Navigate to the backend directory:
+
+   ```bash
+   cd The-Pokedex-Database/backend
+   ```
+
+2. Build and run the API:
+
+   ```bash
+   dotnet build
+   dotnet run
+   ```
+
+   or with Docker:
+
+   ```bash
+   docker build -t pokedex-backend .
+   docker run -p 5000:5000 pokedex-backend
+   ```
+
+3. The API will be available at `http://localhost:5000` by default.
+
+Be sure to update the frontend to point to your local server if you switch away from the public PokeAPI.
 
 ---
 
