@@ -1,5 +1,5 @@
 {
-    "name": "COMP 426 a05 Container",
+    "name": "Pokedex Container",
     "dockerFile": "Dockerfile",
     
     // Forward ports
