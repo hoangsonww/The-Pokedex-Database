@@ -8,8 +8,19 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import Head from 'next/head';
 import { Analytics } from '@vercel/analytics/react';
+import { Poppins, Space_Grotesk } from 'next/font/google';
 
 const queryClient = new QueryClient();
+const bodyFont = Poppins({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '600', '700']
+});
+const displayFont = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['500', '700']
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   // Use the router to get the current path
@@ -105,7 +116,7 @@ export default function App({ Component, pageProps }: AppProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 15 }}
           transition={{ duration: 0.4 }}
-          className="font-sans">
+          className={`${bodyFont.variable} ${displayFont.variable} font-sans`}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
