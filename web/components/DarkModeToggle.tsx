@@ -46,8 +46,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggleDarkMode}
-      className="bg-primary dark:bg-gray-700 text-gray-50 dark:hover:bg-gray-600
-                 rounded px-2 py-1 font-medium transition flex items-center hover:bg-secondary"
+      className="rounded-full border border-primary/20 bg-white px-3 py-2 font-medium text-primaryDark transition hover:border-primary/40 hover:bg-primary/10 dark:border-white/10 dark:bg-slate-900 dark:text-pink-100 dark:hover:bg-slate-800"
       aria-label="Toggle Dark Mode">
       {isDark ? (
         <SunIcon className="h-5 w-5" />

@@ -7,6 +7,16 @@ export type Item = {
   name: string;
   // The cost of the item
   cost: number;
+  // The category of the item
+  category?: {
+    name: string;
+  };
+  // Additional attributes for the item
+  attributes?: {
+    name: string;
+  }[];
+  // Power used when fling is available
+  fling_power?: number | null;
   // The effects of the item, including the short effect and the long effect as well as the language
   effect_entries: {
     effect: string;

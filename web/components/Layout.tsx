@@ -17,15 +17,10 @@ type LayoutProps = {
  */
 export default function Layout({ children }: LayoutProps) {
   return (
-    // Each page will be wrapped in this layout component
-    // A layout contains: A Navbar, the main content (e.g. the list of pokemons and items, the item details page, etc.), and a Footer
-    // The Navbar and Footer are shared across all pages
-    // The main content will be different for each page
-    // The children prop is a ReactNode, which means it can be any valid JSX element
-    <div className="flex flex-col min-h-screen">
+    <div className="relative flex min-h-screen flex-col overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top,rgba(236,72,153,0.18),transparent_60%)]" />
       <Navbar />
-      {/* Main content */}
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-6">
+      <main className="relative z-10 mx-auto flex-1 w-full max-w-7xl px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
         {children}
       </main>
       <Footer />

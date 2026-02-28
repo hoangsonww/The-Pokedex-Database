@@ -24,7 +24,7 @@ export default function Pagination({
   onPageChange
 }: PaginationProps) {
   // Calculate the total number of pages
-  const totalPages = Math.ceil(totalCount / pageSize);
+  const totalPages = Math.max(1, Math.ceil(totalCount / pageSize));
 
   // Handle the previous page button click
   const handlePrev = () => {
@@ -43,14 +43,13 @@ export default function Pagination({
       <button
         onClick={handlePrev}
         disabled={currentPage <= 1}
-        className="flex items-center space-x-2 px-4 py-2 bg-primary dark:bg-gray-700 text-gray-50 
-                   rounded disabled:opacity-50 hover:opacity-80 transition">
+        className="flex items-center space-x-2 rounded-full border border-primary/20 bg-white px-4 py-2 text-primaryDark shadow-soft transition hover:border-primary/40 hover:bg-primary/10 disabled:cursor-not-allowed disabled:opacity-50 dark:border-white/10 dark:bg-slate-900 dark:text-pink-100 dark:hover:bg-slate-800">
         <ArrowLeftIcon className="h-5 w-5" />
         <span>Prev</span>
       </button>
 
       {/* Page Indicator */}
-      <div className="font-medium text-lg">
+      <div className="rounded-full border border-white/70 bg-white/70 px-4 py-2 text-lg font-medium shadow-soft dark:border-white/10 dark:bg-slate-900/80">
         Page {currentPage} of {totalPages}
       </div>
 
@@ -58,8 +57,7 @@ export default function Pagination({
       <button
         onClick={handleNext}
         disabled={currentPage >= totalPages}
-        className="flex items-center space-x-2 px-4 py-2 bg-primary dark:bg-gray-700 text-gray-50 
-                   rounded disabled:opacity-50 hover:opacity-80 transition">
+        className="flex items-center space-x-2 rounded-full border border-primary/20 bg-white px-4 py-2 text-primaryDark shadow-soft transition hover:border-primary/40 hover:bg-primary/10 disabled:cursor-not-allowed disabled:opacity-50 dark:border-white/10 dark:bg-slate-900 dark:text-pink-100 dark:hover:bg-slate-800">
         <span>Next</span>
         <ArrowRightIcon className="h-5 w-5" />
       </button>

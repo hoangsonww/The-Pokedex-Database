@@ -1,0 +1,147 @@
+import { GetServerSideProps } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import SurfaceCard from '@/components/SurfaceCard';
+import { Ability } from '@/data/models/ability';
+import { formatFlavorText } from '@/utils/flavor-text-formatter';
+import { formatName } from '@/utils/pokedex';
+
+type AbilityPageProps = {
+  ability: Ability;
+  effectText: string;
+  flavorText: string;
+};
+
+/**
+ * Ability detail page.
+ *
+ * @param param0 The page props
+ * @returns The ability page
+ */
+export default function AbilityPage({
+  ability,
+  effectText,
+  flavorText
+}: AbilityPageProps) {
+  const router = useRouter();
+
+  return (
+    <div className="space-y-8">
+      <button
+        onClick={() => router.back()}
+        className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-3 text-sm font-semibold text-primaryDark transition hover:border-primary/40 hover:bg-primary/10 dark:border-white/10 dark:bg-slate-900 dark:text-pink-100 dark:hover:bg-slate-800">
+        <ArrowLeftIcon className="h-5 w-5" />
+        Back
+      </button>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}>
+        <SurfaceCard className="space-y-8">
+          <div className="space-y-5">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
+                Ability profile
+              </p>
+              <h1 className="mt-2 text-4xl font-bold">
+                {formatName(ability.name)}
+              </h1>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-3xl bg-primary/8 p-4 dark:bg-white/5">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                  Generation
+                </p>
+                <p className="mt-2 text-2xl font-bold">
+                  {formatName(ability.generation.name)}
+                </p>
+              </div>
+              <div className="rounded-3xl bg-primary/8 p-4 dark:bg-white/5">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                  Pokémon with ability
+                </p>
+                <p className="mt-2 text-2xl font-bold">
+                  {ability.pokemon.length}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">Effect</h2>
+              <div className="rounded-3xl border border-white/70 bg-white/75 p-5 dark:border-white/10 dark:bg-slate-950/40">
+                <p className="leading-7">{effectText}</p>
+              </div>
+              <div className="rounded-3xl border border-white/70 bg-white/75 p-5 dark:border-white/10 dark:bg-slate-950/40">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                  Flavor text
+                </p>
+                <p className="mt-2 leading-7">{flavorText}</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">Pokémon using this ability</h2>
+              <div className="flex flex-wrap gap-2">
+                {ability.pokemon.slice(0, 30).map((entry) => (
+                  <Link
+                    key={entry.pokemon.name}
+                    href={`/pokemon/${entry.pokemon.name}`}
+                    className="rounded-full border border-primary/20 bg-primary/8 px-3 py-2 text-sm font-semibold text-primaryDark transition hover:border-primary/40 hover:bg-primary/14 dark:border-white/10 dark:bg-white/5 dark:text-pink-100 dark:hover:bg-white/10">
+                    {formatName(entry.pokemon.name)}
+                    {entry.is_hidden ? ' • Hidden' : ''}
+                  </Link>
+                ))}
+              </div>
+              {ability.pokemon.length > 30 && (
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Showing the first 30 Pokémon for readability.
+                </p>
+              )}
+            </div>
+          </div>
+        </SurfaceCard>
+      </motion.div>
+    </div>
+  );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { name } = context.query;
+
+  if (!name || typeof name !== 'string') {
+    return { notFound: true };
+  }
+
+  const response = await fetch(`https://pokeapi.co/api/v2/ability/${name}`);
+
+  if (!response.ok) {
+    return { notFound: true };
+  }
+
+  const ability = (await response.json()) as Ability;
+  const englishEffect = ability.effect_entries.find(
+    (entry) => entry.language.name === 'en'
+  );
+  const effectText = englishEffect
+    ? formatFlavorText(englishEffect.effect)
+    : 'No effect description found.';
+  const englishFlavor = ability.flavor_text_entries?.find(
+    (entry) => entry.language.name === 'en'
+  );
+  const flavorText = englishFlavor
+    ? formatFlavorText(englishFlavor.flavor_text)
+    : 'No flavor text found.';
+
+  return {
+    props: {
+      ability,
+      effectText,
+      flavorText
+    }
+  };
+};
